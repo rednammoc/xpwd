@@ -1,0 +1,12 @@
+#!/bin/bash
+# @name: xpwd
+# @version: 1.00
+# @description: Copy current working directory path into clipboard. 
+# @author: rednammoc
+# @date: 14/08/02
+# @install-notes: mv xpwd /usr/bin/ && chmod +x /usr/bin/xpwd
+if ! command -v "xclip" >/dev/null 2>&1 ; then
+	echo >&2 "xclip was not found. Abort."
+	exit 1
+fi
+pwd | tr -d '\n' | xclip -i -selection clipboard
